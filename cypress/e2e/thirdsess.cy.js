@@ -1,9 +1,10 @@
 ///<reference types ="Cypress" />
-const url = "http://172.31.1.13:1902/"
+// const url = "http://172.31.1.13:1902/"
 
 //within
 it.only('Examples of within', () => {
-    cy.visit(url);
+    // cy.visit(url);
+    cy.visit(Cypress.env('stag_url'));
     cy.get('.login-form').eq(0).within(() => {
     cy.get(".form-group").eq(0).should("exist")
     cy.get(".form-control").eq(1).should("exist");
@@ -16,16 +17,27 @@ it.only('Examples of within', () => {
     cy.get('#IndexCreate').click({force:true});
     cy.wait(1000);
 
+    // wait
+    cy.intercept("GET",'**/Portal/CustomerRegistrationRequest/**').as('waitPage')
+    cy.wait('@waitPage')
 
-
-    // general information
+    // drop down-- select
     cy.get('#MaritalStatusId').select('UnMarried');
-    cy.get('#NomineeFilesDoc').eq(0).selectFile('cypress/fixtures/ff.png',{force:true});
+
+    //file upload
+    cy.get(':nth-child(3) > #contact-tab').click();
+    cy.get('#NomineeExists').check({force:true});
+    cy.wait(5000);
+    cy.get('#NomineeFilesDoc').eq(0).selectFile('cypress/fixtures/tt.png',{force:true});
     
-
-
-    cy.visit("https://the-internet.herokuapp.com/upload")
+// attach file
+    cy.visit(Cypress.env('drg_url'));
     cy.get("#file-upload").attachFile("/tt.png") 
+
+    // drag and drop
+    cy.visit(Cypress.env('drg_url'));
+    cy.get("#drag-drop-upload").attachFile("/test.avif", { subjectType: 'drag-n-drop' })
+
 
 });
         
