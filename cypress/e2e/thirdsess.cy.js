@@ -5,8 +5,11 @@ const password = Cypress.env('password')
 
 //within
 it.only('Examples of within', () => {
+    //const
     // cy.visit(url);
+    //env
     cy.visit(Cypress.env('stag_url'));
+    // within
     cy.get('.login-form').eq(0).within(() => {
     cy.get(".form-group").eq(0).should("exist")
     cy.get(".form-control").eq(1).should("exist");
