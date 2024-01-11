@@ -1,5 +1,7 @@
 ///<reference types ="Cypress" />
 // const url = "http://172.31.1.13:1902/"
+const username = Cypress.env('username')
+const password = Cypress.env('password')
 
 //within
 it.only('Examples of within', () => {
@@ -9,8 +11,8 @@ it.only('Examples of within', () => {
     cy.get(".form-group").eq(0).should("exist")
     cy.get(".form-control").eq(1).should("exist");
 })
-    cy.get('#Username').type('O045719', {delay:500});
-    cy.get('#Password').type('Pass@1234', {delay:500});
+    cy.get('#Username').type(username);
+    cy.get('#Password').type(password);
     cy.get('.btn').eq(0).click({ force: true });
     cy.wait(1000);
     cy.get(':nth-child(7) > .nav-link').click();
