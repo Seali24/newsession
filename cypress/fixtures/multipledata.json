@@ -1,0 +1,13 @@
+[{
+    "username":"mohan",
+    "password":"Test@123",
+    "case":"login with valid operator"
+
+},
+{
+    "username":"rabin",
+    "password":"Test@123",
+    "case":"login with valid approver"
+}
+
+]
