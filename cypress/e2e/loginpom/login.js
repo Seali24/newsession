@@ -10,18 +10,3 @@ export class ccimsloginpage{
         cy.get('.btn').click();
     }
 }
-
-// export class loginpage {
-//     constructor (username,password){
-//         this.user = username;
-//         this.password = password;
-//     }
-
-//     UsernameOperator(){
-//         cy.get('.form-control').eq(0).type(this.user);   
-//         cy.get('.form-control').eq(1).type(this.password);
-//         cy.get('.btn').click();
-//     }
-
-  
-//   }

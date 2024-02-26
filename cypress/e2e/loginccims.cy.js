@@ -8,17 +8,3 @@ describe('ccims', () => {
         forlogin.login();
     });
 });
-
-// ///<reference types = 'cypress'/>
-
-// import { loginpage } from "./loginpom/login";
-
-
-// describe('ccims', () => {
-    
-//     it('case', () => {
-//         cy.visit('https://ccimsinternal.infodev.com.np/');
-//         const username = new loginpage('mohan', 'Test@123')
-//         username.UsernameOperator();
-//     });
-// });
